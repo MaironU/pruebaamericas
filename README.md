@@ -1,59 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Introducción
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A continuación se mostraran los detalles de lo que es la Api de Colores
 
-## About Laravel
+- [Listado de tecnologías o frameworks utilizados].
+- [Cómo instalar las dependencias y correr el proyecto].
+- [Documentación].
+- [Url de producción].
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Listado de tecnologías o frameworks utilizados
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Ésta api esta desarrollada con el lenguaje PHP version 8.0 y el framework de Laravel version 9, se utilizó git para el versionamiento y heroku como servidor. Es muy fácil de utilizar y ya lo verá más adelante.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Cómo instalar las dependencias y correr el proyecto
 
-## Learning Laravel
+A continuación se mostraran los pasos 1 a 1 para poder dejar el proyecto funcionando localmente
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [Clonar el siguiente repositorio](https://github.com/MaironU/pruebaamericas)[con el comando git clone https://github.com/MaironU/pruebaamericas]
+- [Luego de clonar entrar a la carpeta por consola usando cd pruebaamericas/].
+- [Instalar las dependencias correspondientes con el comando composer install, dado el caso que ocurra un error se va a la raiz del proyecto y crea una carpeta llamada vendor y vuelve a ejecutar el comando.
+- [Una vez instalado las dependencias crear un archivo llamado .env en la raiz del proyecto para añadir la configuración correspondiente de la bdd].
+- [Una vez creado el archivo .env abrir el archivo .env.example que trae laravel por defecto, copiar toda la información y pegarla en el archivo .env creado anteriormente].
+- [Luego crear la bdd, usted escoge el nombre que desee, una vez creada la bdd se va al archivo .env y en DB_DATABASE poner el nombre de la base de datos que creó y en DB_PASSWORD poner la contraseña, en caso de no tener contraseña dejar vacío. Ejemplo: DB_DATABASE=nombrebdd y DB_PASSWORD=].
+- [Una vez configurada la bdd, abrir la consola ubicarse en el proyecto y correr el comando php artisan config:cache].
+- [Luego ejecutar el siguiente comando php artisan migrate --seed, para crear las tablas y añadir los datos de los colores por defecto].
+- [Si llegaste hasta aqui ya debes tener la bdd funcionando correctamente].
+- [Luego vas a ejecutar el comando php artisan serve, para levantar el servidor].
+- [Y listo ya puedes empezar a usar la Api de Colores].
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Importante: recuerda que al momento de ejecutar php artisan ser se te genera una url que es el DOMINIO del proyecto, ese DOMINIO es el que utilizará para hacer las peticiones a la api.
 
-## Laravel Sponsors
+### Documentación
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Rutas
 
-### Premium Partners
+- GET DOMINIO/api/colores Este endpoint obtiene todos los colores que hay en la bdd, de manera paginada, 10 datos por página
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- GET DOMINIO/api/colores/id Este endpoint obtiene un COLOR en específico recibe como parámetro un id de tipo entero que es el id del color en la bdd EJEMPLO: DOMINIO/api/colores/1 esto retornara: 
+{
+    "data": {
+        "id": 1,
+        "name": "cerulean",
+        "color": "#98B2D1",
+        "year": "2000",
+        "pantone_value": "15-4020",
+        "created_at": "2022-04-20T16:31:55.000000Z",
+        "updated_at": "2022-04-20T16:31:55.000000Z"
+    },
+    "message": null,
+    "response": true,
+    "code": 200
+}
+
+- POST DOMINIO/api/colores Este endpoint crea un COLOR y recibo como body un objeto como el siguiente: 
+{
+	"name": "nuevo",
+	"color": "#4949dfddddd",
+	"year": "2020",
+	"pantone_value": "14-4090"
+}
+
+todos los parametros son requeridos.
+
+- PUT DOMINIO/api/colores/id Este endpoint actualiza un COLOR en específico,  se debe enviar el id del COLOR a actualizar y como body un objeto con los datos a actualizar, Ejemplo:
+
+{
+	"name": "Nuevo nombre",
+}
+
+En este caso estoy enviando por body este objeto que significa que solo quiero actualizar el nombre del Color, si deseo actualizar otro dato, podria enviarlo tambien desde el mismo objeto.
+
+- DELETE DOMINIO/api/colores/id Este endpoint elimina un COLOR y recibo como parámetro el id del color que se quiere eliminar.
+
+
+Importante: Todas las rutas al final de cada url puede recibir un parametro que es opcional que se llama xml.
+
+Ejemplo: DOMINIO/api/colores?xml=1 al enviar xml=1 la api retornara los datos en xml si se envia 0 que es por defecto los retornada como un json.
+
+Tambien tener en cuenta la estructura del objeto recibido:
+
+{
+    "data": {  // Este campo es el que muestra la información real de los colores
+        "id": 1,
+        "name": "cerulean",
+        "color": "#98B2D1",
+        "year": "2000",
+        "pantone_value": "15-4020",
+        "created_at": "2022-04-20T16:31:55.000000Z",
+        "updated_at": "2022-04-20T16:31:55.000000Z"
+    },
+    "message": null, // Este es el mensaje de la respuesta
+    "response": true, // Este es el status si fue correcto es true si hubo un error es false
+    "code": 200 // y este es el codigo http de la respuesta
+}
+
+
+### Documentación
+
+La Api ha sido subida a un servidor de heroku la url es la siguiente:
+https://apicolores.herokuapp.com
+
+Puede probar la api tanto en local como en producción sin ningún problema
 
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
 ## Security Vulnerabilities
 
