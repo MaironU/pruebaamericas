@@ -2,10 +2,10 @@
 
 A continuación se mostraran los detalles de lo que es la Api de Colores
 
-- [Listado de tecnologías o frameworks utilizados].
-- [Cómo instalar las dependencias y correr el proyecto].
-- [Documentación].
-- [Url de producción].
+- Listado de tecnologías o frameworks utilizados.
+- Cómo instalar las dependencias y correr el proyecto.
+- Documentación.
+- Url de producción.
 
 ## Listado de tecnologías o frameworks utilizados
 
