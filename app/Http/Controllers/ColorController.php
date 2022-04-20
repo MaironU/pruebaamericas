@@ -24,7 +24,7 @@ class ColorController extends Controller
      */
     public function index(Request $request)
     {
-        $colores = $this->color->select('id', 'name', 'color')->get();
+        $colores = $this->color->select('id', 'name', 'color')->paginate(10);
         return $this->successResponse($colores, $request->xml);
     }
 
