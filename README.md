@@ -11,6 +11,8 @@ A continuación se mostraran los detalles de lo que es la Api de Colores
 
 Ésta api esta desarrollada con el lenguaje PHP version 8.0 y el framework de Laravel version 9, se utilizó git para el versionamiento y heroku como servidor. Es muy fácil de utilizar y ya lo verá más adelante.
 
+Tambien se utilizó la dependencia mtownsend/response-xml para responder los datos en xml
+
 ## Cómo instalar las dependencias y correr el proyecto
 
 A continuación se mostraran los pasos 1 a 1 para poder dejar el proyecto funcionando localmente
