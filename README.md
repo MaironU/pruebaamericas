@@ -15,17 +15,17 @@ A continuación se mostraran los detalles de lo que es la Api de Colores
 
 A continuación se mostraran los pasos 1 a 1 para poder dejar el proyecto funcionando localmente
 
-- [Clonar el siguiente repositorio](https://github.com/MaironU/pruebaamericas)[con el comando git clone https://github.com/MaironU/pruebaamericas]
-- [Luego de clonar entrar a la carpeta por consola usando cd pruebaamericas/].
-- [Instalar las dependencias correspondientes con el comando composer install, dado el caso que ocurra un error se va a la raiz del proyecto y crea una carpeta llamada vendor y vuelve a ejecutar el comando.
-- [Una vez instalado las dependencias crear un archivo llamado .env en la raiz del proyecto para añadir la configuración correspondiente de la bdd].
-- [Una vez creado el archivo .env abrir el archivo .env.example que trae laravel por defecto, copiar toda la información y pegarla en el archivo .env creado anteriormente].
-- [Luego crear la bdd, usted escoge el nombre que desee, una vez creada la bdd se va al archivo .env y en DB_DATABASE poner el nombre de la base de datos que creó y en DB_PASSWORD poner la contraseña, en caso de no tener contraseña dejar vacío. Ejemplo: DB_DATABASE=nombrebdd y DB_PASSWORD=].
-- [Una vez configurada la bdd, abrir la consola ubicarse en el proyecto y correr el comando php artisan config:cache].
-- [Luego ejecutar el siguiente comando php artisan migrate --seed, para crear las tablas y añadir los datos de los colores por defecto].
-- [Si llegaste hasta aqui ya debes tener la bdd funcionando correctamente].
-- [Luego vas a ejecutar el comando php artisan serve, para levantar el servidor].
-- [Y listo ya puedes empezar a usar la Api de Colores].
+-  Clonar el siguiente repositorio https://github.com/MaironU/pruebaamericas con el comando git clone https://github.com/MaironU/pruebaamericas
+- Luego de clonar entrar a la carpeta por consola usando cd pruebaamericas/.
+- Instalar las dependencias correspondientes con el comando composer install, dado el caso que ocurra un error se va a la raiz del proyecto y crea una carpeta llamada vendor y vuelve a ejecutar el comando.
+- Una vez instalado las dependencias crear un archivo llamado .env en la raiz del proyecto para añadir la configuración correspondiente de la bdd.
+- Una vez creado el archivo .env abrir el archivo .env.example que trae laravel por defecto, copiar toda la información y pegarla en el archivo .env creado anteriormente.
+- Luego crear la bdd, usted escoge el nombre que desee, una vez creada la bdd se va al archivo .env y en DB_DATABASE poner el nombre de la base de datos que creó y en DB_PASSWORD poner la contraseña, en caso de no tener contraseña dejar vacío. Ejemplo: DB_DATABASE=nombrebdd y DB_PASSWORD=.
+- Una vez configurada la bdd, abrir la consola ubicarse en el proyecto y correr el comando php artisan config:cache.
+- Luego ejecutar el siguiente comando php artisan migrate --seed, para crear las tablas y añadir los datos de los colores por defecto.
+- Si llegaste hasta aqui ya debes tener la bdd funcionando correctamente.
+- Luego vas a ejecutar el comando php artisan serve, para levantar el servidor.
+- Y listo ya puedes empezar a usar la Api de Colores.
 
 Importante: recuerda que al momento de ejecutar php artisan ser se te genera una url que es el DOMINIO del proyecto, ese DOMINIO es el que utilizará para hacer las peticiones a la api.
 
@@ -94,7 +94,7 @@ Tambien tener en cuenta la estructura del objeto recibido:
 }
 
 
-### Documentación
+### Url de producción
 
 La Api ha sido subida a un servidor de heroku la url es la siguiente:
 https://apicolores.herokuapp.com
